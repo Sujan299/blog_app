@@ -13,11 +13,11 @@ const Mern = ({ mainTheme }) => {
       <div className='pt-[4vh]'>
         {
           items.length >= 1 ? <ArticleComponent data={items} /> : <>
-          {/* <div className="space-y-4 h-[80vh]">
+            {/* <div className="space-y-4 h-[80vh]">
             <div className={`h-48 bg-gray-400 rounded-md animate-pulse`}></div>
             <div className={`h-48 bg-gray-400 rounded-md animate-pulse`}></div>
           </div> */}
-          <h2 className='text-center'>No articles yet !</h2>
+            <h2 className='text-center h-[80vh]'>No articles yet !</h2>
           </>
         }
       </div>
