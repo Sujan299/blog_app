@@ -77,7 +77,7 @@ const CreatePost = () => {
   const handleSubmit = async () => {
     console.log(content);
     try {
-      const response = await axios.post("http://localhost:3000/create_post/", {
+      const response = await axios.post("https://blog-app-rdnu.onrender.com/create_post/", {
         title, image, content, category
       });
       if (response.status === 201) {

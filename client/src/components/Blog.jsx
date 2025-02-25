@@ -16,7 +16,7 @@ const Blog = ({ mainTheme }) => {
   useEffect(() => {
     const getItem = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/post/${id}`);
+        const response = await axios.get(`https://blog-app-rdnu.onrender.com/post/${id}`);
         console.log(response.data);
         setItem(response.data)
 
