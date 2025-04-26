@@ -11,9 +11,9 @@ const useFetchPosts = (category1) => {
         const fetchData = async () => {
             setLoading(true); 
             try {
-        // const response = await axios.get(`https://blog-app-rdnu.onrender.com/${category}`);
+        const response = await axios.get(`https://blog-app-rdnu.onrender.com/${category}`);
 
-                const response = await axios.get(`http://localhost:3000/${category}`);
+                // const response = await axios.get(`http://localhost:3000/${category}`);
                 setData(response.data);
             } catch (err) {
                 setError(err.message);

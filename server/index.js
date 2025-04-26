@@ -10,20 +10,20 @@ const googleAuthRoutes = require("./routes/googleAuth.route.js")
 
 app.use(express.json()); 
 app.use(cookieParser()); // it parses incomming cookies from http
-// app.use(
-//     cors({
-//       origin: "https://blog-app-xi-henna.vercel.app/",
-//       methods: ["GET", "POST"],
-//       credentials: true,
-//     })
-//   );
 app.use(
     cors({
-      origin: "http://localhost:5173",
+      origin: "https://blog-app-xi-henna.vercel.app/",
       methods: ["GET", "POST"],
       credentials: true,
     })
   );
+// app.use(
+//     cors({
+//       origin: "http://localhost:5173",
+//       methods: ["GET", "POST"],
+//       credentials: true,
+//     })
+//   );
 const PORT = process.env.PORT || 4000
 const URI = process.env.mongoDBURI;
 
