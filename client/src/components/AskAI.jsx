@@ -4,11 +4,12 @@ import OpenAI from "openai";
 import ReactMarkdown from "react-markdown";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 
-const AskAI = ({ mainTheme }) => {
+const AskAI = ({mainTheme}) => {
+    console.log("re-rendering")
     const [text, setText] = useState("");
     const [arrContent, setArrContent] = useState([])
     const [thinking, setThinking] = useState(false);
-    const notify = (msg) => toast(msg);
+    const notify = () => toast(msg);
     const scrollObj = useRef(null);
     useEffect(()=>{
         scrollObj.current.scrollIntoView({
@@ -55,7 +56,7 @@ const AskAI = ({ mainTheme }) => {
         setThinking(false)
     }
     return (
-        <div className={`${mainTheme} py-6 sm:mx-0 px-4 h-[80vh] overflow-y-auto`}>
+        <div className={` py-6 sm:mx-0 px-4 h-[80vh] overflow-y-auto ${mainTheme}`}>
             <div className={`flex flex-col justify-center`} style={{ maxHeight: "auto" }}>
                 <div className='flex flex-col'>
                     {
@@ -85,7 +86,7 @@ const AskAI = ({ mainTheme }) => {
                 }
                 {/* // scrolling useEffect  */}
                 {/* <div ref={messagesEndRef} /> */}
-                <div  ref={scrollObj} className={`w-full max-w-lg mx-auto p-4 flex items-center gap-2 border border-gray-300 rounded-lg ${mainTheme === "bg-light_dark text-white" ? "bg-primary_dark border-none" : "bg-primary_blue"}`}>
+                <div  ref={scrollObj} className={`w-full max-w-lg mx-auto p-4 flex items-center gap-2 border border-gray-300 rounded-lg`}>
                     <textarea
                         className="rounded-md w-full p-3 resize-none focus:outline-none"
                         style={{ minHeight: "80px", maxHeight: "40vh", height: "auto" }}

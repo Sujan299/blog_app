@@ -6,7 +6,7 @@ const Footer = ({ footerTheme }) => {
 
         <nav className={`px-[10%] h-1/9 flex justify-center items-center ${footerTheme} text-[2.5vh] gap-[1vh]`}>
 
-            <span>created by</span>
+            <span>By</span>
             <FaHeart className="text-red-600" />
             <span>Sujan</span>
         </nav>

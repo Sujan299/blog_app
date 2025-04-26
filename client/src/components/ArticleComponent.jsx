@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom"
 
 const ArticleComponent = ({data}) => {
+  console.log("Article Components")
   return (
     <>
       {
-        data.map((blog) => {
-          return <Link to={`/blog/${blog._id}`}>
+        data.map((blog, index) => {
+          return <Link to={`/blog/${blog._id}`} key={index}>
             <div className='pb-[4vh] lg:w-[80%] w-[100%] md:flex-row flex flex-col md:gap-[2vw] gap-[3vh]'>
               <img className='md:h-[20vw] xl:h-[20vh] md:w-[15vw] h-[30vh] object-cover rounded-lg' src={blog.image} alt="article image" />
               <div className='md:h-[28vh]'>
@@ -21,4 +22,4 @@ const ArticleComponent = ({data}) => {
   )
 }
 
-export default ArticleComponent
+export default React.memo(ArticleComponent)
