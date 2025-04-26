@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cookieParser()); // it parses incomming cookies from http
 app.use(
     cors({
-      origin: "https://blog-app-xi-henna.vercel.app/",
+      origin: "https://blog-app-xi-henna.vercel.app",
       methods: ["GET", "POST"],
       credentials: true,
     })
