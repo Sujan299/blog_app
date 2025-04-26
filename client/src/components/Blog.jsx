@@ -14,12 +14,12 @@ const Blog = ({ mainTheme }) => {
   useEffect(() => {
     const getItem = async () => {
       try {
-        // const response = await axios.get(`https://blog-app-rdnu.onrender.com/post/${id}`,
-        //   {
-        //     withCredentials: true
-        //   }
-        // );
-        const response = await axios.get(`http://localhost:3000/post/${id}`);
+        const response = await axios.get(`https://blog-app-rdnu.onrender.com/post/${id}`,
+          {
+            withCredentials: true
+          }
+        );
+        // const response = await axios.get(`http://localhost:3000/post/${id}`);
         setItem(response.data);
         setLoading(false);
       } catch (err) {
