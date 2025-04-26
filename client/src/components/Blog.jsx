@@ -9,17 +9,19 @@ import axios from 'axios';
 const Blog = ({ mainTheme }) => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getItem = async () => {
       try {
-        const response = await axios.get(`https://blog-app-rdnu.onrender.com/post/${id}`,
-          {
-            withCredentials: true
-          }
-        );
-        // const response = await axios.get(`http://localhost:3000/post/${id}`);
+        // const response = await axios.get(`https://blog-app-rdnu.onrender.com/post/${id}`,
+        //   {
+        //     withCredentials: true
+        //   }
+        // );
+        const response = await axios.get(`http://localhost:3000/post/${id}`);
         setItem(response.data);
+        setLoading(false);
       } catch (err) {
         console.log("Error fetching article:", err);
       }
@@ -52,27 +54,33 @@ const Blog = ({ mainTheme }) => {
   //         .replace(/&/g, '&amp;')
   //         .replace(/</g, '&lt;')
   //         .replace(/>/g, '&gt;');
-  
+
   //       return `<pre><code class="language-javascript">${escapedCode}</code></pre>`;
   //     }
   //   );
   // };
 
-  if (!item) return null;
-
   return (
-    <div className={`px-[10%] pt-[8vh] ${mainTheme} flex flex-col items-center pb-[5vh]`}>
-      <div className='md:w-[80%] sm:w-[100%]'>
-        <h1 className='md:text-[2.5vw] text-[5vw] font4'>{item[0].title}</h1>
-        <img src={item[0].image} alt="" className='font5 w-[100%] md:h-[70vh] h-[40vh] object-cover pt-[5vh]' />
-        <p
-          className='pt-[5vh]'
-          dangerouslySetInnerHTML={{
-            __html: processContent(item[0].content) // Process content to add language classes
-          }}
-        ></p>
+    <>
+      {
+        loading ? <div className={`h-[80vh] flex justify-center items-center ${mainTheme}`}>
+          <div class="flex justify-center items-center h-screen">
+            <div class="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+          </div>
+        </div> : <div className={`px-[10%] pt-[8vh] ${mainTheme} flex flex-col items-center pb-[5vh]`}>
+        <div className='md:w-[80%] w-[100%]'>
+          <h1 className='md:text-[2.5vw] text-[5vw] font4'>{item[0].title}</h1>
+          <img src={item[0].image} alt="" className='font5 w-[100%] md:h-[70vh] h-[40vh] object-cover pt-[5vh]' />
+          <p
+            className='pt-[5vh]'
+            dangerouslySetInnerHTML={{
+              __html: processContent(item[0].content) // Process content to add language classes
+            }}
+          ></p>
+        </div>
       </div>
-    </div>
+      }
+    </>
   );
 };
 

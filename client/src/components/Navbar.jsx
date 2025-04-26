@@ -51,7 +51,9 @@ const Navbar = ({ theme, navTheme }) => {
             </div>
             <div className='bg-primary_dark rounded-full shadow-amber-950 text-4xl p-1 text-primary_white cursor-pointer'>
                 {
-                    !theme.dark ? <MdOutlineDarkMode onClick={() => { theme.setDark(true) }} className="md:block hidden" /> : <MdOutlineLightMode onClick={() => { theme.setDark(false) }} className="md:block hidden " />
+                    !theme.dark ? <MdOutlineDarkMode onClick={() => { theme.setDark(true) }} className="md:block hidden animate-pulse" /> : <MdOutlineLightMode onClick={() => { theme.setDark(false) }} className="md:block hidden animate-spin"
+                        style={{ animationDuration: "10s" }}
+                    />
                 }
                 <div className='md:hidden block' onClick={handleClick}>
                     <CiMenuFries />
@@ -61,12 +63,12 @@ const Navbar = ({ theme, navTheme }) => {
 
             {
                 open && <ul className={`md:hidden flex flex-col md:gap-[8vw] gap-[4vw] fixed top-0 left-0 h-[100vh] w-[50vw] pt-[5vh] px-[5vw] z-10 ${navTheme}`}>
-                    <li  className='flex justify-between'>
+                    <li className='flex justify-between'>
                         <Link to='/' className={`${pathname === "/"
                             ? (theme.dark ? "text-gray-500" : "text-primary_dark")
                             : ""
                             }`} onClick={handleClick}>Ask AI</Link>
-                            
+
                         <div><ImCross onClick={handleClick} /></div>
                     </li>
                     <li>
@@ -90,7 +92,9 @@ const Navbar = ({ theme, navTheme }) => {
 
                     <li className='text-primary_white cursor-pointer' onClick={handleClick}>
                         {
-                            !theme.dark ? <MdOutlineDarkMode onClick={() => { theme.setDark(true) }} className="text-2xl" /> : <MdOutlineLightMode onClick={() => { theme.setDark(false) }} className="text-2xl rounded-full" />
+                            !theme.dark ? <MdOutlineDarkMode onClick={() => { theme.setDark(true) }} className="text-2xl animate-pulse" /> : <MdOutlineLightMode onClick={() => { theme.setDark(false) }} className="text-2xl rounded-full animate-spin"
+                            style={{ animationDuration: "10s" }}
+                             />
                         }
                     </li>
                 </ul>

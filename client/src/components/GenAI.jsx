@@ -12,7 +12,7 @@ const GenAI = ({ mainTheme }) => {
   </div>;
   if (error) return <div>Error: {error}</div>;
   return (
-    <div className={`px-[10%] pt-[8vh] ${mainTheme}`}>
+    <div className={`px-[10%] pt-[8vh] ${mainTheme} min-h-[80vh]`}>
       <h1 className='md:text-[3vw] xl:text-[2vw] text-2xl font3'>Articles</h1>
       <div className='pt-[4vh]'>
         {
