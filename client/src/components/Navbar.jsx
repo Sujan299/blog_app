@@ -19,7 +19,7 @@ const Navbar = ({ theme, navTheme }) => {
         setOpen(!open)
     }
     return (
-        <nav className={`px-[10%] h-1/9 flex justify-between items-center ${navTheme}`}>
+        <nav className={`px-[10%] h-1/9 flex justify-between items-center ${navTheme} sticky top-0`}>
             <div className='text-3xl font-semibold font2'>Sujan<span className='text-brown_color'>.dev</span></div>
             <div className=''>
                 <ul className='md:flex hidden gap-[8vw] font1 text-md'>
@@ -62,7 +62,7 @@ const Navbar = ({ theme, navTheme }) => {
             </div>
 
             {
-                open && <ul className={`md:hidden flex flex-col md:gap-[8vw] gap-[4vw] fixed top-0 left-0 h-[100vh] w-[50vw] pt-[5vh] px-[5vw] z-10 ${navTheme}`}>
+                open && <ul className={`md:hidden flex flex-col md:gap-[8vw] gap-[4vw] sticky top-0 left-0 h-[100vh] w-[50vw] pt-[5vh] px-[5vw] z-10 ${navTheme}`}>
                     <li className='flex justify-between'>
                         <Link to='/' className={`${pathname === "/"
                             ? (theme.dark ? "text-gray-500" : "text-primary_dark")
